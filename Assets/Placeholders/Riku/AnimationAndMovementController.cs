@@ -83,12 +83,13 @@ public class AnimationAndMovementController : MonoBehaviour
     void onJump (InputAction.CallbackContext context)
     {
         isJumpPressed = context.ReadValueAsButton();
-        Debug.Log(isJumpPressed);
+        //Debug.Log(isJumpPressed);
     }
 
     void onRun (InputAction.CallbackContext context)
     {
         isRunPressed = context.ReadValueAsButton();
+        //Debug.Log(isRunPressed);
     }
 
     void handleRotation()
