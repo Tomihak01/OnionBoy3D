@@ -5,7 +5,7 @@ public class EnemyBase : MonoBehaviour
 {
     public float detectionRange = 10f;
     public float attackRange = 2f;
-    public float rotationSpeed = 360f;
+    public float rotationSpeed = 180f; // Kääntymisnopeus astetta per sekunti
     public float moveIntervalMin = 5f;
     public float moveIntervalMax = 15f;
     public float chaseRange = 15f;
@@ -17,6 +17,8 @@ public class EnemyBase : MonoBehaviour
     private Transform player;
     private Vector3 lastPlayerPosition;
 
+    protected float chaseMoveSpeed; // Muutettavissa oleva nopeus vihollisen seuratessa pelaajaa
+    private float originalMoveSpeed;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -27,29 +29,19 @@ public class EnemyBase : MonoBehaviour
     protected virtual void SetEnemyStats()
     {
         moveSpeed = 3f;
+        chaseMoveSpeed = 5f;
+        originalMoveSpeed = moveSpeed;
     }
 
     void Update()
     {
         DetectPlayer();
-        MoveForward();
-    }
-
-    void MoveForward()
-    {
-        if (isMoving)
-        {
-            transform.Translate(transform.forward * moveSpeed * Time.deltaTime);
-        }
     }
 
     IEnumerator MoveAndRotate()
     {
         while (true)
         {
-            float rotateTime = Random.Range(1f, 10f);
-            float moveTime = Random.Range(5f, 10f);
-
             Quaternion startRotation = transform.rotation;
             Quaternion targetRotation;
 
@@ -62,6 +54,7 @@ public class EnemyBase : MonoBehaviour
                 targetRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
             }
 
+            float rotateTime = Random.Range(1f, 5f); // Satunnainen kääntymisen aika 1-5 sekuntia
             float t = 0;
             while (t < 1)
             {
@@ -71,9 +64,26 @@ public class EnemyBase : MonoBehaviour
             }
 
             isMoving = true;
-            yield return new WaitForSeconds(moveTime);
+
+            float moveTime = Random.Range(5f, 10f);
+            float elapsedTime = 0f;
+            while (elapsedTime < moveTime)
+            {
+                elapsedTime += Time.deltaTime;
+                if (isPlayerDetected)
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, lastPlayerPosition, chaseMoveSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+                }
+                yield return null;
+            }
+
             isMoving = false;
-            yield return null;
+
+            yield return new WaitForSeconds(Random.Range(moveIntervalMin, moveIntervalMax));
         }
     }
 
@@ -86,7 +96,12 @@ public class EnemyBase : MonoBehaviour
             {
                 isPlayerDetected = true;
                 lastPlayerPosition = hit.transform.position;
+                Debug.Log("Pelaaja havaittu. Pelaajan sijainti: " + lastPlayerPosition);
             }
+        }
+        else
+        {
+            isPlayerDetected = false;
         }
 
         Debug.DrawRay(transform.position, transform.forward * detectionRange, Color.green);
@@ -104,9 +119,12 @@ public class EnemyBase : MonoBehaviour
         if (distanceToPlayer > chaseRange || distanceToPlayer > stopChaseRange)
         {
             isPlayerDetected = false;
+            moveSpeed = originalMoveSpeed; // Palautetaan alkuperäinen liikkumisnopeus
         }
         else
         {
+            Debug.Log("Pelaaja havaittu, etäisyys: " + distanceToPlayer);
+
             if (!isMoving)
             {
                 StartCoroutine(MoveAndRotate());
@@ -116,11 +134,19 @@ public class EnemyBase : MonoBehaviour
             {
                 AttackPlayer();
             }
+            else
+            {
+                moveSpeed = chaseMoveSpeed; // Asetetaan nopeudeksi chaseMoveSpeed
+
+                // Päivitetään vihollisen sijainti pelaajan suuntaan
+                transform.position = Vector3.MoveTowards(transform.position, lastPlayerPosition, chaseMoveSpeed * Time.deltaTime);
+            }
         }
     }
 
     protected virtual void AttackPlayer()
     {
         Debug.Log("Hyökkäys pelaajaa vastaan!");
+        // Voit lisätä hyökkäyslogiikkaa, viivett
     }
 }
