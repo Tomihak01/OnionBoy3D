@@ -9,7 +9,7 @@ public class IdleState : State
     [SerializeField] LayerMask detectionLayer;
 
     [Header("Linen Of Sight Detection")]
-   [SerializeField]float characterEyeLevel = 1.5f;
+    [SerializeField] float characterEyeLevel = 1.5f;
     [SerializeField] LayerMask ignoreForLinenOfSightDetection;
 
     [Header("Detection Radius")]
@@ -50,16 +50,16 @@ public class IdleState : State
 
             if (player != null)
             {
-                
+
 
                 Vector3 targetDirection = transform.position - player.transform.position;
                 float viewAbleAngle = Vector3.Angle(targetDirection, transform.forward);
 
-                
+
                 if (viewAbleAngle > mininumDetectionRadiusAngle && viewAbleAngle < maxnumDetectionRadiusAngle)
                 {
                     RaycastHit hit;
-                    
+
                     Vector3 playerStartPoint = new Vector3(player.transform.position.x, characterEyeLevel, player.transform.position.z);
                     Vector3 enemyStartPoint = new Vector3(transform.position.x, characterEyeLevel, transform.position.z);
 
@@ -67,7 +67,7 @@ public class IdleState : State
 
                     if (Physics.Linecast(playerStartPoint, enemyStartPoint, out hit, ignoreForLinenOfSightDetection))
                     {
-                       
+
                     }
                     else
                     {

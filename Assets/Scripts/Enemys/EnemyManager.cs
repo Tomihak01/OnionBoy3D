@@ -41,9 +41,10 @@ public class EnemyManager : MonoBehaviour
         enemyRigidbody = GetComponent<Rigidbody>();
     }
 
-    private void Update()
+   private void Update()
     {
         enemyNavmeshAgent.transform.localPosition = Vector3.zero;
+        
         if(currentTarget != null)
         {
            distanceFromCurrentTarget = Vector3.Distance(currentTarget.transform.position, transform.position);
