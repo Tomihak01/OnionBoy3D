@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyManager : MonoBehaviour
 {
-
+    public EnemyAnimatorManager enemyAnimatorManager;
     public IdleState startingState;
 
     [Header("Current State")]
@@ -14,7 +11,9 @@ public class EnemyManager : MonoBehaviour
 
     [Header("Current Target")]
     public PlayerManager currentTarget;
+    public Vector3 targetsDirection;
     public float distanceFromCurrentTarget;
+    public float viewableAngleFromCurretTarget;
 
     [Header("Animator")]
     public Animator animator;
@@ -30,8 +29,12 @@ public class EnemyManager : MonoBehaviour
     public float rotationSpeed = 5;
 
     [Header("Attack")]
-    public float mininumAttackDistance = 1;
+    public float attackCoolDownTimer;
+    public float minimumAttackDistance = 1;
+    public float maximumAttackDistance = 3;
 
+    [Header("Flags")]
+    public bool isPerformingAction;
 
     private void Awake()
     {
@@ -39,15 +42,23 @@ public class EnemyManager : MonoBehaviour
         enemyNavmeshAgent = GetComponentInChildren<NavMeshAgent>();
         animator = GetComponent<Animator>();
         enemyRigidbody = GetComponent<Rigidbody>();
+        enemyAnimatorManager = GetComponent<EnemyAnimatorManager>();
     }
 
-   private void Update()
+    private void Update()
     {
         enemyNavmeshAgent.transform.localPosition = Vector3.zero;
-        
-        if(currentTarget != null)
+
+        if (attackCoolDownTimer > 0)
         {
-           distanceFromCurrentTarget = Vector3.Distance(currentTarget.transform.position, transform.position);
+            attackCoolDownTimer = attackCoolDownTimer - Time.deltaTime;
+        }
+
+        if (currentTarget != null)
+        {
+            targetsDirection = currentTarget.transform.position - transform.position;
+            viewableAngleFromCurretTarget = Vector3.SignedAngle(targetsDirection, transform.forward, Vector3.up);
+            distanceFromCurrentTarget = Vector3.Distance(currentTarget.transform.position, transform.position);
         }
     }
 
@@ -66,7 +77,7 @@ public class EnemyManager : MonoBehaviour
 
     }
 
-    
+
 
     private void FixedUpdate()
     {

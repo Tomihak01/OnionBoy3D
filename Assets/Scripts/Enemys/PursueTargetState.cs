@@ -18,8 +18,9 @@ public class PursueTargetState : State
         MoveTowardsCurrentTarget(enemyManager);
         RotateTowardsTarget(enemyManager);
 
-        if (enemyManager.distanceFromCurrentTarget<= enemyManager.mininumAttackDistance)
+        if (enemyManager.distanceFromCurrentTarget<= enemyManager.maximumAttackDistance)
         {
+            enemyManager.enemyNavmeshAgent.enabled = false;
             return attackState;
         }
         else
