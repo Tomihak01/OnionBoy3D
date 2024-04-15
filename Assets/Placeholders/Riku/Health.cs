@@ -22,7 +22,7 @@ public class Health : MonoBehaviour
         healthText.text = "Health:" + health + "%";
         if (health > maxhealth) health = maxhealth;
 
-        lerpSpeed = 3f * Time.deltaTime;
+        lerpSpeed = 5f * Time.deltaTime;
 
         HealthBarFiller();
 
