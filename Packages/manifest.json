@@ -1,14 +1,6 @@
 {
   "dependencies": {
-<<<<<<< Updated upstream
     "com.unity.cinemachine": "2.9.7",
-=======
-<<<<<<< HEAD
-    "com.unity.ai.navigation": "1.1.5",
-=======
-    "com.unity.cinemachine": "2.9.7",
->>>>>>> e8ce25dd5dffc13cbf9e798d1eb673536981fa8d
->>>>>>> Stashed changes
     "com.unity.collab-proxy": "2.2.0",
     "com.unity.ext.nunit": "1.0.6",
     "com.unity.ide.rider": "3.0.27",
