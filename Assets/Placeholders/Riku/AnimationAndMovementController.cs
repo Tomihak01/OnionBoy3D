@@ -25,20 +25,25 @@ public class AnimationAndMovementController : MonoBehaviour
     float rotationFactorPerFrame = 15.0f;
     float runMultiplier = 5.0f;
     float walkMultiplier = 2.0f;
-    int zero = 0;
 
     float gravity = -9.8f;
     float groundedGravity = -.05f;
 
     bool isJumpPressed = false;
     float initialJumpVelocity;
-    float maxJumpHeight = 4.0f;
+    float maxJumpHeight = 2.0f;
     float maxJumpTime = 0.75f;
     bool isJumping = false;
     int isJumpingHash;
     bool isJumpAnimating = false;
     int jumpCountHash;
     int jumpCount = 0;
+
+    //bool isAttackPressed = false;
+    //int isAttackingHash;
+    //bool isAttackAnimating = false;
+    //bool isAttacking = false;
+
 
 
     Dictionary<int, float> initialJumpVelocities = new Dictionary<int, float>();
@@ -58,6 +63,7 @@ public class AnimationAndMovementController : MonoBehaviour
         isRunningHash = Animator.StringToHash("isRunning");
         isJumpingHash = Animator.StringToHash("isJumping");
         jumpCountHash = Animator.StringToHash("jumpCount");
+        //isAttackingHash = Animator.StringToHash("isAttacking");
 
         playerInput.CharacterControls.Move.started += onMovementInput;
         playerInput.CharacterControls.Move.canceled += onMovementInput;
@@ -66,6 +72,9 @@ public class AnimationAndMovementController : MonoBehaviour
         playerInput.CharacterControls.Run.canceled += onRun;
         playerInput.CharacterControls.Jump.started += onJump;
         playerInput.CharacterControls.Jump.canceled += onJump;
+
+        //playerInput.CharacterControls.Attack.started += onAttack;
+        //playerInput.CharacterControls.Attack.canceled += onAttack;
 
         setupJumpVariables();
 
@@ -112,11 +121,26 @@ public class AnimationAndMovementController : MonoBehaviour
         }
     }
 
+    //void handleAttack()
+    //{
+    //    if (!isAttacking)
+    //    { 
+    //        animator.SetBool(isAttackingHash, true);
+    //        isAttackAnimating = true;
+
+    //    }
+    //}
+
     IEnumerator jumpResetRoutine()
     {
         yield return new WaitForSeconds(.2f);
         jumpCount = 0;
     }
+
+    //void onAttack(InputAction.CallbackContext context)
+    //{
+    //    isAttackPressed = context.ReadValueAsButton();
+    //}
 
     void onJump (InputAction.CallbackContext context)
     {
@@ -248,6 +272,7 @@ public class AnimationAndMovementController : MonoBehaviour
 
         handleGravity();
         handleJump();
+        //handleAttack();
     }
 
     void OnEnable()
