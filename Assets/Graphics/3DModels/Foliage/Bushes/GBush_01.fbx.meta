@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f22e4731426224c44aacf63d62afe0e3
+guid: 8c136a0891162e14ca0caf8feaf5f9f5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,13 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: OB_Eyeballs
-    second: {fileID: 2100000, guid: d81ada8b365f10340a4aa6674d54efe5, type: 2}
+      name: treebark_01_2k
+    second: {fileID: 2100000, guid: 1c0adb28b8da43c419c7293f38e5b765, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: OB_SkinColor
-    second: {fileID: 2100000, guid: e3704b077b0f68e449e4a55e152de3ae, type: 2}
+      name: treebranch_01MAT
+    second: {fileID: 2100000, guid: d1362b3e4a48c5941b444e886f3832a3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -44,7 +44,10 @@ ModelImporter:
     clipAnimations: []
     isReadable: 0
   meshes:
-    lODScreenPercentages: []
+    lODScreenPercentages:
+    - 0.25
+    - 0.125
+    - 0.01
     globalScale: 1
     meshCompression: 0
     addColliders: 0
