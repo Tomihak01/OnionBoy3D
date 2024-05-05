@@ -3,7 +3,17 @@ guid: f22e4731426224c44aacf63d62afe0e3
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OB_Eyeballs
+    second: {fileID: 2100000, guid: d81ada8b365f10340a4aa6674d54efe5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OB_SkinColor
+    second: {fileID: 2100000, guid: e3704b077b0f68e449e4a55e152de3ae, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

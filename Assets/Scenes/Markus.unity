@@ -123,6 +123,74 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &88266832
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 967530ccc3b2d4241948e2dbd7239204,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.219
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 967530ccc3b2d4241948e2dbd7239204,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00000011920929
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 967530ccc3b2d4241948e2dbd7239204,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.14
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 967530ccc3b2d4241948e2dbd7239204,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 967530ccc3b2d4241948e2dbd7239204,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 967530ccc3b2d4241948e2dbd7239204,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 967530ccc3b2d4241948e2dbd7239204,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 967530ccc3b2d4241948e2dbd7239204,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 967530ccc3b2d4241948e2dbd7239204,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 967530ccc3b2d4241948e2dbd7239204,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 967530ccc3b2d4241948e2dbd7239204,
+        type: 3}
+      propertyPath: m_Name
+      value: OnionBoy_02@Running
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 967530ccc3b2d4241948e2dbd7239204, type: 3}
 --- !u!1001 &149912527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10428,74 +10496,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1001 &1208679242
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: f22e4731426224c44aacf63d62afe0e3,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.4182987
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: f22e4731426224c44aacf63d62afe0e3,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: f22e4731426224c44aacf63d62afe0e3,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4.0997734
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: f22e4731426224c44aacf63d62afe0e3,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: f22e4731426224c44aacf63d62afe0e3,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: f22e4731426224c44aacf63d62afe0e3,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: f22e4731426224c44aacf63d62afe0e3,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: f22e4731426224c44aacf63d62afe0e3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: f22e4731426224c44aacf63d62afe0e3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: f22e4731426224c44aacf63d62afe0e3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: f22e4731426224c44aacf63d62afe0e3,
-        type: 3}
-      propertyPath: m_Name
-      value: OnionBoyPlaceHolder
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f22e4731426224c44aacf63d62afe0e3, type: 3}
 --- !u!850595691 &1255081533
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -11472,6 +11472,6 @@ SceneRoots:
   - {fileID: 1827511002}
   - {fileID: 435415981}
   - {fileID: 1453208710}
-  - {fileID: 1208679242}
   - {fileID: 1268734218}
   - {fileID: 277757007}
+  - {fileID: 88266832}
