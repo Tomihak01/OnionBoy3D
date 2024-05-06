@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4936572665009678979}
   - component: {fileID: 6139072552460584847}
   - component: {fileID: 450791085088907363}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: States
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,6 +68,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7f0eebba6205ce4eba31b16a705135d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyAttackActions:
+  - {fileID: 11400000, guid: a4c310e57676aac4d90af633164b6baf, type: 2}
+  potentialAttacks: []
 --- !u!114 &450791085088907363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,8 +83,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e78d21786a7188d479925b4566c352bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyAttackActions: []
-  potentialAttacks: []
   currentAttack: {fileID: 11400000, guid: a4c310e57676aac4d90af633164b6baf, type: 2}
   hasPerformedAttack: 0
 --- !u!1 &8789518999557324465
@@ -94,7 +95,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6956903162188444092}
   - component: {fileID: 4285591484968667095}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: NavMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +155,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e612501173afc1f4fb47a916ce87c51f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.677
+      value: 0.78
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e612501173afc1f4fb47a916ce87c51f,
         type: 3}
@@ -231,10 +232,30 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.z
       value: 0.00048515375
       objectReference: {fileID: 0}
+    - target: {fileID: -3560954337168880341, guid: e612501173afc1f4fb47a916ce87c51f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e612501173afc1f4fb47a916ce87c51f,
         type: 3}
       propertyPath: m_Name
       value: Potato_Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e612501173afc1f4fb47a916ce87c51f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1751333408180217604, guid: e612501173afc1f4fb47a916ce87c51f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585487669543198387, guid: e612501173afc1f4fb47a916ce87c51f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -268,6 +289,18 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 231693266735779722}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e612501173afc1f4fb47a916ce87c51f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5794954305272684408}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e612501173afc1f4fb47a916ce87c51f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 970073133750420201}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e612501173afc1f4fb47a916ce87c51f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1278137251582614430}
     - targetCorrespondingSourceObject: {fileID: 3585487669543198387, guid: e612501173afc1f4fb47a916ce87c51f,
         type: 3}
       insertIndex: -1
@@ -299,6 +332,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAnimatorManager: {fileID: 0}
   startingState: {fileID: 4936572665009678979}
+  enemyHealthManager: {fileID: 0}
+  enemyCombatManager: {fileID: 5794954305272684408}
   currentState: {fileID: 0}
   currentTarget: {fileID: 0}
   targetsDirection: {x: 0, y: 0, z: 0}
@@ -312,6 +347,8 @@ MonoBehaviour:
   minimumAttackDistance: 1
   maximumAttackDistance: 1.4
   isPerformingAction: 0
+  isDead: 0
+  canRotate: 0
 --- !u!65 &8798979974977429683
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -393,6 +430,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c37ad101c32ab4a4dbe32522aa12256b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5794954305272684408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118183852919781268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66c6c753b93426a429f5be98a72b5745, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grappleDamage: 50
+  rightGrappleCollider: {fileID: 1278137251582614430}
+  leftGrappleCollider: {fileID: 1278137251582614430}
+--- !u!114 &970073133750420201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118183852919781268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e096112c09b2c4cbc28a7b1a143034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 100
+--- !u!114 &1278137251582614430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118183852919781268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b76662695fb8db449a7967be8e13d2bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grappleCollider: {fileID: 8798979974977429683}
+  isRightGrappleCollider: 0
+  playerHealth: {fileID: 0}
+  attackType: 2
+  damageAmount: 20
 --- !u!1 &2334574510095144054 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3585487669543198387, guid: e612501173afc1f4fb47a916ce87c51f,
@@ -406,7 +488,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2334574510095144054}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 894fdc30fd553cd43917790722bb0540, type: 3}
   m_Name: 

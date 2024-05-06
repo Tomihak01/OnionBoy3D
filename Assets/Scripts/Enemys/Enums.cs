@@ -12,5 +12,6 @@ public enum EnemyAttackType
     grapple,
     swipe,
     punch,
-    dropkick
+    dropkick,
+    potatoattack
 } 

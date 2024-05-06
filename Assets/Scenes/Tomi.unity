@@ -908,27 +908,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 450791085088907363, guid: ce1a1380e8cbbd54791859693ba314b6,
-        type: 3}
-      propertyPath: currentAttack
-      value: 
-      objectReference: {fileID: 11400000, guid: a4c310e57676aac4d90af633164b6baf,
-        type: 2}
-    - target: {fileID: 450791085088907363, guid: ce1a1380e8cbbd54791859693ba314b6,
-        type: 3}
-      propertyPath: enemyAttackActions.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 450791085088907363, guid: ce1a1380e8cbbd54791859693ba314b6,
-        type: 3}
-      propertyPath: enemyAttackActions.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: a4c310e57676aac4d90af633164b6baf,
-        type: 2}
     - target: {fileID: 714340990371392961, guid: ce1a1380e8cbbd54791859693ba314b6,
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278137251582614430, guid: ce1a1380e8cbbd54791859693ba314b6,
+        type: 3}
+      propertyPath: attackType
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1598386790558870830, guid: ce1a1380e8cbbd54791859693ba314b6,
         type: 3}
@@ -990,11 +978,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 2118183852919781268, guid: ce1a1380e8cbbd54791859693ba314b6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2334574510095144054, guid: ce1a1380e8cbbd54791859693ba314b6,
         type: 3}
       propertyPath: m_Layer
@@ -1010,11 +993,6 @@ PrefabInstance:
       propertyPath: enemyCombatManager
       value: 
       objectReference: {fileID: 1348388895}
-    - target: {fileID: 5590314850215469991, guid: ce1a1380e8cbbd54791859693ba314b6,
-        type: 3}
-      propertyPath: isPerformingAction
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6139072552460584847, guid: ce1a1380e8cbbd54791859693ba314b6,
         type: 3}
       propertyPath: enemyAttackActions.Array.size
@@ -1026,16 +1004,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: a4c310e57676aac4d90af633164b6baf,
         type: 2}
-    - target: {fileID: 6193405932674452564, guid: ce1a1380e8cbbd54791859693ba314b6,
-        type: 3}
-      propertyPath: m_UpdateMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6193405932674452564, guid: ce1a1380e8cbbd54791859693ba314b6,
-        type: 3}
-      propertyPath: m_CullingMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6800415730082259253, guid: ce1a1380e8cbbd54791859693ba314b6,
         type: 3}
       propertyPath: m_Layer
@@ -1054,77 +1022,20 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2118183852919781268, guid: ce1a1380e8cbbd54791859693ba314b6,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1348388895}
-    - targetCorrespondingSourceObject: {fileID: 2118183852919781268, guid: ce1a1380e8cbbd54791859693ba314b6,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1348388902}
-    - targetCorrespondingSourceObject: {fileID: 2118183852919781268, guid: ce1a1380e8cbbd54791859693ba314b6,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1348388903}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce1a1380e8cbbd54791859693ba314b6, type: 3}
---- !u!1 &1348388888 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2118183852919781268, guid: ce1a1380e8cbbd54791859693ba314b6,
+--- !u!114 &1348388895 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5794954305272684408, guid: ce1a1380e8cbbd54791859693ba314b6,
     type: 3}
   m_PrefabInstance: {fileID: 1269962198}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1348388895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1348388888}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66c6c753b93426a429f5be98a72b5745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grappleDamage: 50
-  rightGrappleCollider: {fileID: 1348388903}
-  leftGrappleCollider: {fileID: 1348388903}
---- !u!65 &1348388899 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 8798979974977429683, guid: ce1a1380e8cbbd54791859693ba314b6,
-    type: 3}
-  m_PrefabInstance: {fileID: 1269962198}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1348388902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1348388888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7e096112c09b2c4cbc28a7b1a143034, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHealth: 100
---- !u!114 &1348388903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1348388888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b76662695fb8db449a7967be8e13d2bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grappleCollider: {fileID: 1348388899}
-  isRightGrappleCollider: 0
-  playerHealth: {fileID: 0}
-  attackType: 2
-  damageAmount: 20
 --- !u!1 &1884305175
 GameObject:
   m_ObjectHideFlags: 0
