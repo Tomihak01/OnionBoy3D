@@ -25,17 +25,17 @@ public class PlayerStateMachine : MonoBehaviour
 
     // constants
     float _rotationFactorPerFrame = 15.0f;
-    float _runMultiplier = 3f;
+    float _runMultiplier = 1f;
     int _zero = 0;
-    float _walkSpeed = 0.2f;
+    float _walkSpeed = 0.5f;
 
     // gravity variables
-    float _gravity = -9.8f;
+    float _gravity = -4f;//Default was -9.8f
 
     //jumping variables
     bool _isJumpPressed = false;
     float _initialJumpVelocity;
-    float _maxJumpHeight = .5f;
+    float _maxJumpHeight = 4.5f;
     float _maxJumpTime = 0.75f;
     bool _isJumping = false;
     int _isJumpingHash;
@@ -119,13 +119,13 @@ public class PlayerStateMachine : MonoBehaviour
     // set the initial velocity and gravity using jump heights and durations
     void setupJumpVariables()
     {
-        float timeToApex = _maxJumpTime / 2;
-        float initialGravity = (-2 * _maxJumpHeight) / Mathf.Pow(timeToApex, 2);
-        _initialJumpVelocity = (2 * _maxJumpHeight) / timeToApex;
-        float secondJumpGravity = (-2 * (_maxJumpHeight + 2)) / Mathf.Pow((timeToApex * 1.25f), 2);
-        float secondJumpInitialVelocity = (2 * (_maxJumpHeight + 2)) / (timeToApex * 1.25f);
-        float thirdJumpGravity = (-2 * (_maxJumpHeight + 4)) / Mathf.Pow((timeToApex * 1.5f), 2);
-        float thirdJumpInitialVelocity = (2 * (_maxJumpHeight + 4)) / (timeToApex * 1.5f);
+        float timeToApex = _maxJumpTime / 1f;
+        float initialGravity = (-0.75f * _maxJumpHeight) / Mathf.Pow(timeToApex, 2);
+        _initialJumpVelocity = (0.45f * _maxJumpHeight) / timeToApex;
+        float secondJumpGravity = (-1.25f * (_maxJumpHeight + 2)) / Mathf.Pow((timeToApex * 1.25f), 2);
+        float secondJumpInitialVelocity = (0.75f * (_maxJumpHeight + 0.5f)) / (timeToApex * 1.25f);
+        float thirdJumpGravity = (-1.75f * (_maxJumpHeight + 4)) / Mathf.Pow((timeToApex * 1.5f), 2);
+        float thirdJumpInitialVelocity = (1.25f * (_maxJumpHeight + 0.8f)) / (timeToApex * 1.5f);
 
         _initialJumpVelocities.Add(1, _initialJumpVelocity);
         _initialJumpVelocities.Add(2, secondJumpInitialVelocity);
@@ -140,7 +140,7 @@ public class PlayerStateMachine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _characterController.Move(_appliedMovement *  Time.deltaTime);
+        _characterController.Move(_appliedMovement  *  Time.deltaTime);
     }
 
     // Update is called once per frame
@@ -151,6 +151,7 @@ public class PlayerStateMachine : MonoBehaviour
 
         _cameraRelativeMovement = ConvertToCameraSpace(_appliedMovement);
         _characterController.Move(_cameraRelativeMovement * Time.deltaTime);
+
     }
 
     Vector3 ConvertToCameraSpace(Vector3 vectorToRotate)
