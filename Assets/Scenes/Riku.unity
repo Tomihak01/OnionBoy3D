@@ -4547,6 +4547,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthText: {fileID: 789511485}
   healthBar: {fileID: 1515980460}
+--- !u!114 &1137871985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137871975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ee1406d8c0fe74ab562ba840e14629, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1145921121
 GameObject:
   m_ObjectHideFlags: 0
@@ -5257,6 +5269,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1137871981}
+    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 82a2914d8f86c62488456950c8330e38,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1137871985}
     - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 82a2914d8f86c62488456950c8330e38,
         type: 3}
       insertIndex: -1

@@ -11,6 +11,7 @@ public class BaseAnimationBoolEnemy : StateMachineBehaviour
         if (enemy != null)
         {
             enemy.isPerformingAction = false;
+            enemy.canRotate = true;
         }
     }
 

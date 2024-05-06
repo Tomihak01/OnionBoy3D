@@ -3,6 +3,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "A.I/Actions/Enemy Attack Action")]
 public class EnemyAttackAction : ScriptableObject
 {
+
+    [Header("AttackType")]
+    public EnemyAttackType attackType;
+
     [Header("Attack Animation")]
     public string attackAnimation;
 
@@ -14,6 +18,7 @@ public class EnemyAttackAction : ScriptableObject
     public float minimumAttackAngle = -20f;
     public float maximumAttackDistance = 3f;
     public float minimumAttackDistance = 1f;
+    
 
 
 
