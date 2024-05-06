@@ -25,8 +25,9 @@ public class PlayerStateMachine : MonoBehaviour
 
     // constants
     float _rotationFactorPerFrame = 15.0f;
-    float _runMultiplier = 4.0f;
+    float _runMultiplier = 3f;
     int _zero = 0;
+    float _walkSpeed = 0.2f;
 
     // gravity variables
     float _gravity = -9.8f;
@@ -34,7 +35,7 @@ public class PlayerStateMachine : MonoBehaviour
     //jumping variables
     bool _isJumpPressed = false;
     float _initialJumpVelocity;
-    float _maxJumpHeight = 4.0f;
+    float _maxJumpHeight = .5f;
     float _maxJumpTime = 0.75f;
     bool _isJumping = false;
     int _isJumpingHash;
@@ -139,7 +140,7 @@ public class PlayerStateMachine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _characterController.Move(_appliedMovement * Time.deltaTime);
+        _characterController.Move(_appliedMovement *  Time.deltaTime);
     }
 
     // Update is called once per frame
