@@ -134,7 +134,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 967530ccc3b2d4241948e2dbd7239204,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.91
+      value: 10.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 967530ccc3b2d4241948e2dbd7239204,
         type: 3}
@@ -144,7 +144,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 967530ccc3b2d4241948e2dbd7239204,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.888
+      value: 8.62
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 967530ccc3b2d4241948e2dbd7239204,
         type: 3}
@@ -355,12 +355,12 @@ PrefabInstance:
     - target: {fileID: 4742473837712756890, guid: 8c136a0891162e14ca0caf8feaf5f9f5,
         type: 3}
       propertyPath: m_LODs.Array.data[0].screenRelativeHeight
-      value: 0.23978421
+      value: 0.53207594
       objectReference: {fileID: 0}
     - target: {fileID: 4742473837712756890, guid: 8c136a0891162e14ca0caf8feaf5f9f5,
         type: 3}
       propertyPath: m_LODs.Array.data[1].screenRelativeHeight
-      value: 0.07687994
+      value: 0.36480638
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10153,7 +10153,7 @@ Transform:
   m_GameObject: {fileID: 918594368}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.82, y: 0.0000009536743, z: -4.4}
+  m_LocalPosition: {x: -7.5, y: 0.0000009536743, z: -18.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10977,17 +10977,17 @@ PrefabInstance:
     - target: {fileID: 4742473837712756890, guid: d871eca278dca8b4ca6165c7ca8a251a,
         type: 3}
       propertyPath: m_LODs.Array.data[0].screenRelativeHeight
-      value: 0.47693244
+      value: 0.6623416
       objectReference: {fileID: 0}
     - target: {fileID: 4742473837712756890, guid: d871eca278dca8b4ca6165c7ca8a251a,
         type: 3}
       propertyPath: m_LODs.Array.data[1].screenRelativeHeight
-      value: 0.31972578
+      value: 0.47393692
       objectReference: {fileID: 0}
     - target: {fileID: 4742473837712756890, guid: d871eca278dca8b4ca6165c7ca8a251a,
         type: 3}
       propertyPath: m_LODs.Array.data[2].screenRelativeHeight
-      value: 0.20984964
+      value: 0.35037762
       objectReference: {fileID: 0}
     - target: {fileID: 4742473837712756890, guid: d871eca278dca8b4ca6165c7ca8a251a,
         type: 3}
@@ -11562,8 +11562,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994152646}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.34871036, y: 0.16052067, z: -0.060779627, w: 0.92137945}
-  m_LocalPosition: {x: 6.935466, y: 3.1471443, z: 12.067674}
+  m_LocalRotation: {x: 0.048797075, y: 0.9506826, z: -0.23204073, w: 0.19994648}
+  m_LocalPosition: {x: 16.520317, y: 8.025406, z: 47.741806}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
