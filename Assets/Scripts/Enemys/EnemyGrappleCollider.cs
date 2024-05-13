@@ -56,19 +56,19 @@ public class EnemyGrappleCollider : MonoBehaviour
             Quaternion targetPlayerRotation = Quaternion.LookRotation(enemy.transform.position - player.transform.position);
             player.transform.rotation = targetPlayerRotation;
 
-            playerHealth.Damage(enemy.enemyCombatManager.grappleDamage);
+            playerHealth.Damage(enemy.enemyCombatManager.attackDamage);
         }
         else if (attackType == EnemyAttackType.punch)
         {
-             playerHealth.Damage(enemy.enemyCombatManager.grappleDamage);
+             playerHealth.Damage(enemy.enemyCombatManager.attackDamage);
         }
         else if (attackType == EnemyAttackType.swipe)
         {
-            playerHealth.Damage(enemy.enemyCombatManager.grappleDamage);
+            playerHealth.Damage(enemy.enemyCombatManager.attackDamage);
         }
         else if (attackType == EnemyAttackType.dropkick)
         {
-            playerHealth.Damage(enemy.enemyCombatManager.grappleDamage);
+            playerHealth.Damage(enemy.enemyCombatManager.attackDamage);
         }
 
     }

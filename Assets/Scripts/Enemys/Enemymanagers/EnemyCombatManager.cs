@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyCombatManager : MonoBehaviour
 {
     [Header("attack damage")]
-    public int grappleDamage = 50;
+    public int attackDamage = 50;
 
     EnemyManager enemyManager;
     [SerializeField] EnemyGrappleCollider rightGrappleCollider;
