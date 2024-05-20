@@ -1,9 +1,24 @@
 fileFormatVersion: 2
-guid: bc6470efd3bbdad4eac7c67e80921fb7
+guid: f1b04cd74fe59524b8dfc6f58d73fd36
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Browleft
+    second: {fileID: 2100000, guid: 489fc3131a931a8478fe582fffae0f6c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Browright
+    second: {fileID: 2100000, guid: baad691785968764e9eb2e0eb5de8ebc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: potato
+    second: {fileID: 2100000, guid: d8d6a67b2f7fa3e4491ec4998e5a3b4c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

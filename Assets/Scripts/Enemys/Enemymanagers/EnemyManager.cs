@@ -67,7 +67,7 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    private void HandelStateMachine()
+    private void HandleStateMachine()
     {
         State nextState;
         if (currentState != null)
@@ -88,7 +88,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (!isDead)
         {
-            HandelStateMachine();
+            HandleStateMachine();
         }
 
 

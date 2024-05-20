@@ -2,19 +2,19 @@ using UnityEngine;
 
 public class EnemyCombatManager : MonoBehaviour
 {
-    [Header("attack damage")]
+    [Header("Attack Damage")]
     public int attackDamage = 50;
 
-    EnemyManager enemyManager;
-    [SerializeField] EnemyGrappleCollider rightGrappleCollider;
-    [SerializeField] EnemyGrappleCollider leftGrappleCollider;
-
+    private EnemyManager enemyManager;
+    [SerializeField] private EnemyGrappleCollider rightGrappleCollider;
+    [SerializeField] private EnemyGrappleCollider leftGrappleCollider;
 
     private void Awake()
     {
         enemyManager = GetComponent<EnemyManager>();
         LoadGrappleColliders();
     }
+
     public void SetAttackType(EnemyAttackType attackType)
     {
         rightGrappleCollider.attackType = attackType;
@@ -40,7 +40,7 @@ public class EnemyCombatManager : MonoBehaviour
 
     public void OpenGrappleColliders()
     {
-        rightGrappleCollider.grappleCollider.enabled=true;
+        rightGrappleCollider.grappleCollider.enabled = true;
         leftGrappleCollider.grappleCollider.enabled = true;
     }
 
@@ -58,6 +58,5 @@ public class EnemyCombatManager : MonoBehaviour
     public void DisableRotationDuringAttack()
     {
         enemyManager.canRotate = false;
-
     }
 }

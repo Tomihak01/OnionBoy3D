@@ -1,14 +1,13 @@
-using Unity.Mathematics;
 using UnityEngine;
 
 public class EnemyGrappleCollider : MonoBehaviour
 {
-    EnemyManager enemy;
+    private EnemyManager enemy;
 
-    [Header("collider")]
+    [Header("Collider")]
     public Collider grappleCollider;
 
-    [Header("Damage Hand collider")]
+    [Header("Damage Hand Collider")]
     public bool isRightGrappleCollider;
 
     [Header("Player Health")]
@@ -22,54 +21,60 @@ public class EnemyGrappleCollider : MonoBehaviour
 
     private void Awake()
     {
+        // Get the EnemyManager component from the parent object
         enemy = GetComponentInParent<EnemyManager>();
+        // Get the Collider component attached to this object
         grappleCollider = GetComponent<Collider>();
 
+        // Get the Health component from the enemy (assuming the enemy has a Health component)
         playerHealth = enemy.GetComponent<Health>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        // Check if the collider belongs to the player
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             Health player = other.GetComponent<Health>();
-             
 
             if (player != null)
             {
-
                 DecideAttackAction(player);
-
             }
         }
     }
+
     private void DecideAttackAction(Health player)
     {
-        if (attackType == EnemyAttackType.grapple)
+        // Perform different actions based on the attack type
+        switch (attackType)
         {
-            enemy.enemyAnimatorManager.PlayGrappleAnimation("Grapple", true);
-            enemy.animator.SetFloat("Vertical", 0);
-
-            Quaternion targetEnemyRotation = Quaternion.LookRotation(player.transform.position - enemy.transform.position);
-            enemy.transform.rotation = targetEnemyRotation;
-
-            Quaternion targetPlayerRotation = Quaternion.LookRotation(enemy.transform.position - player.transform.position);
-            player.transform.rotation = targetPlayerRotation;
-
-            playerHealth.Damage(enemy.enemyCombatManager.attackDamage);
+            case EnemyAttackType.grapple:
+                PerformGrapple(player);
+                break;
+            case EnemyAttackType.punch:
+            case EnemyAttackType.swipe:
+            case EnemyAttackType.dropkick:
+                player.Damage(enemy.enemyCombatManager.attackDamage);
+                break;
         }
-        else if (attackType == EnemyAttackType.punch)
-        {
-             playerHealth.Damage(enemy.enemyCombatManager.attackDamage);
-        }
-        else if (attackType == EnemyAttackType.swipe)
-        {
-            playerHealth.Damage(enemy.enemyCombatManager.attackDamage);
-        }
-        else if (attackType == EnemyAttackType.dropkick)
-        {
-            playerHealth.Damage(enemy.enemyCombatManager.attackDamage);
-        }
+    }
 
+    private void PerformGrapple(Health player)
+    {
+        // Play the grapple animation
+        enemy.enemyAnimatorManager.PlayGrappleAnimation("Grapple", true);
+        enemy.animator.SetFloat("Vertical", 0);
+
+        // Rotate enemy to face the player
+        Quaternion targetEnemyRotation = Quaternion.LookRotation(player.transform.position - enemy.transform.position);
+        enemy.transform.rotation = targetEnemyRotation;
+
+        // Rotate player to face the enemy
+        Quaternion targetPlayerRotation = Quaternion.LookRotation(enemy.transform.position - player.transform.position);
+        player.transform.rotation = targetPlayerRotation;
+
+        // Inflict damage to the player
+        player.Damage(enemy.enemyCombatManager.attackDamage);
     }
 }
